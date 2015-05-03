@@ -55,7 +55,6 @@ public class AverageSentenceLength {
 		
 		// Output results
 		
-		
 		System.out.println("Average Sentence Length: " + avgSentenceLength);
 
 	}
