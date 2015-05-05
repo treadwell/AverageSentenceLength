@@ -1,5 +1,10 @@
 package edu.gatech;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class AverageSentenceLength {
 	
 	// Calculate the average sentence length of a user-supplied 
@@ -12,7 +17,6 @@ public class AverageSentenceLength {
 		String filename = null;
 		String punctuation = "!?;,.";
 		int minWordLength = 3;
-		int avgSentenceLength = 0;
 		
 		// Read command line
 
@@ -45,18 +49,41 @@ public class AverageSentenceLength {
 			}
 		}
 		
-		// Return helpful errors. (non-txt, no punctuation...
-		
-		// Set defaults based on flags
 		
 		// Read file
-		
-		// Parse file & run calculations
-		
-		// Output results
-		
-		System.out.println("Average Sentence Length: " + avgSentenceLength);
+		try {
+			Scanner read = new Scanner(new File(filename));
+			String text = read.useDelimiter("\\A").next();
+			read.close();
 
+			ArrayList<Integer> sentenceLengths = new ArrayList<Integer>();
+
+			for (String sentence : text.split(String.format("[%s]", punctuation))) {
+				Integer wordcount = 0;
+				for (String word : sentence.split("\\s+")) {
+					if (word.length() >= minWordLength) {
+						wordcount++;
+					}
+				}
+
+				if (wordcount > 0) {
+					sentenceLengths.add(wordcount);
+					System.out.printf("Length: %2d; %s\n", wordcount, sentence);
+				}
+			}
+
+			Integer sum = 0;
+			for (Integer i : sentenceLengths) {
+				sum += i;
+			}
+
+			System.out.printf(
+					"Counted %d sentences with average length of %d words.",
+					sentenceLengths.size(), sum / sentenceLengths.size());
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
