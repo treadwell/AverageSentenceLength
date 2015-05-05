@@ -10,6 +10,45 @@ public class AverageSentenceLength {
 	// Calculate the average sentence length of a user-supplied 
 	// document in .txt format based on user-supplied list of 
 	// punctuation and minimum word length.
+	
+//	private static void parseCommandLine(String[] args){
+//		
+//		String filename = null;
+//		String punctuation = "!?;,.";
+//		int minWordLength = 3;
+//		
+//		
+//		if (args.length < 1) {
+//			System.err.println("Error: No file specified.");
+//			System.exit(1);
+//		}
+//		for (int i = 0; i < args.length; i++) {
+//			if (args[i].charAt(0) == '-') {
+//				if (args[i].length() < 2) {
+//					System.err
+//							.println("Error: Invalid command line flag specified.");
+//					System.exit(1);
+//				}
+//
+//				if (args[i].charAt(1) == 'd') {
+//					System.out.println("Delimiter specified: " + args[++i]);
+//					punctuation = args[i];
+//				} else if (args[i].charAt(1) == 'l') {
+//					System.out.println("Word length specified: " + args[++i]);
+//					try {
+//						minWordLength = Integer.parseInt(args[i]);
+//					} catch (NumberFormatException e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			} else {
+//				System.out.println("File specified: " + args[i]);
+//				filename = args[i];
+//			}
+//		}
+//		return filename, punctuation, minWordLength;
+//		
+//	}
 
 	public static void main(String[] args) {
 		// Declare variables
@@ -19,6 +58,8 @@ public class AverageSentenceLength {
 		int minWordLength = 3;
 		
 		// Read command line
+		
+//		parseCommandLine(args);
 
 		if (args.length < 1) {
 			System.err.println("Error: No file specified.");
@@ -48,11 +89,14 @@ public class AverageSentenceLength {
 				filename = args[i];
 			}
 		}
-		
+//		File file=new File("input.txt");
+//	    System.out.println(file.exists());
+//	    System.out.println(new File(".").getAbsoluteFile());
 		
 		// Read file
 		try {
 			Scanner read = new Scanner(new File(filename));
+			
 			String text = read.useDelimiter("\\A").next();
 			read.close();
 
