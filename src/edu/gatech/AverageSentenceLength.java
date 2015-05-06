@@ -13,10 +13,11 @@ public class AverageSentenceLength {
 	
 	public static ResponseData parseCommandLine(String[] args){
 		
+		//defaults
+		
 		String filename = null;
 		String punctuation = "!?;,.";
 		int minWordLength = 3;
-		ResponseData rd = new ResponseData(filename, punctuation, minWordLength);
 
 		if (args.length < 1) {
 			System.err.println("Error: No file specified.");
@@ -46,6 +47,9 @@ public class AverageSentenceLength {
 				filename = args[i];
 			}
 		}
+		
+		ResponseData rd = new ResponseData(filename, punctuation, minWordLength);
+		
 		return rd;
 		
 	}
@@ -54,6 +58,7 @@ public class AverageSentenceLength {
 		
 		
 		// Read command line
+		
 		ResponseData rd = parseCommandLine(args);
 		
 		System.out.println(rd.filename);
