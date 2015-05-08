@@ -11,7 +11,7 @@ public class AverageSentenceLength {
 	// document in .txt format based on user-supplied list of 
 	// punctuation and minimum word length.
 	
-	public ResponseData parseCommandLine(String[] args){
+	public static ResponseData parseCommandLine(String[] args){
 		
 		//defaults
 		
@@ -54,7 +54,7 @@ public class AverageSentenceLength {
 		
 	}
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		
 		
 		// Read command line
