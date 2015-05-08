@@ -10,7 +10,7 @@ public class FailureTest {
 	String[] testargs = {new String("-d"), new String(".!?"), new String("-l"), 
 		new String("3"), new String("input.txt")};
 	
-	ResponseData args = asl.parseCommandLine(testargs);
+	ResponseData args = AverageSentenceLength.parseCommandLine(testargs);
 
 
 	@Test
