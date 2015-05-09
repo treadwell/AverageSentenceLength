@@ -38,10 +38,13 @@ public class AverageSentenceLength {
 					System.out.println("Word length specified: " + args[++i]);
 					try {
 						minWordLength = Integer.parseInt(args[i]);
-					} catch (NumberFormatException e) {
-						e.printStackTrace();
-					}
+					} catch (NumberFormatException e) {e.printStackTrace();}
+				} else {
+					System.err
+						.println("Error: Invalid command line flag specified.");
+					System.exit(1);
 				}
+				
 			} else {
 				System.out.println("File specified: " + args[i]);
 				filename = args[i];
